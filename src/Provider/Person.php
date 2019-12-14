@@ -3252,7 +3252,8 @@ class Person extends \Faker\Provider\zh_CN\Person
             default:
                 $order = self::numberBetween(0, 999);
         }
-
+        $order = str_pad($order, 3, '0', STR_PAD_LEFT);
+        
         $areaPrefix = self::randomElement(array_keys(self::$areaPrefix));
         $mainPart = $areaPrefix.$birthDateString.$order;
 
